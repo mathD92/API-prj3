@@ -3,6 +3,11 @@ package com.feetconnect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +15,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val nav_view: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val navController = findNavController(R.id.fragment)
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.mainfragment,
+                R.id.loginfragment
+            )
+        )
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        nav_view.setupWithNavController(navController)
     }
 }
 
