@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Define the variable for recover the navigation mobile
-        val nav_view: BottomNavigationView = findViewById(R.id.nav_view)
+        val navview: BottomNavigationView = findViewById(R.id.nav_view)
 
         // Here we recover the view fragment on the view activity
         val navController = findNavController(R.id.fragment)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // Configure here the action bottom navigation with the variables
         setupActionBarWithNavController(navController, appBarConfiguration)
         // Here, setup on the nav_view
-        nav_view.setupWithNavController(navController)
+        navview.setupWithNavController(navController)
     }
 }
 
