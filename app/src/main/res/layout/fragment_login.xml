@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.LoginFragment">
+    tools:context=".Fragments.LoginFragment"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_login"
@@ -12,49 +13,48 @@
         android:layout_marginTop="150dp"
         android:text="@string/text_login"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="-130dp"
         android:autofillHints="@string/hint_email"
         android:ems="10"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        />
 
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="-80dp"
         android:autofillHints="@string/hint_password"
         android:ems="10"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        />
 
     <Button
         android:id="@+id/btn_connect"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginStart="-50dp"
-        android:layout_marginTop="-30dp"
         android:text="@string/btn_connect"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        />
 
     <Button
         android:id="@+id/btn_clear"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="-30dp"
-        android:layout_marginEnd="-50dp"
-        android:text="@string/btn_clear" />
+        android:text="@string/btn_clear"
+        />
 
-</FrameLayout>
+</LinearLayout>

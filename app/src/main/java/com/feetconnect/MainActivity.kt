@@ -1,9 +1,9 @@
 package com.feetconnect
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController

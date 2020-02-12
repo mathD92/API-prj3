@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 import com.feetconnect.R
-import com.feetconnect.replaceFragment
 
 /**
  * A simple [Fragment] subclass.
@@ -37,13 +36,11 @@ class LoginFragment : Fragment() {
         // Define the functions
         btn_connect.setOnClickListener() {
             Toast.makeText(context, edit_email.getText(), Toast.LENGTH_SHORT).show()
-            act.replaceFragment(MainFragment())
         }
 
         btn_clear.setOnClickListener(){
             edit_email.text.clear()
             edit_password.text.clear()
-            edit_email.requestFocus()
         }
 
         // Return the view
