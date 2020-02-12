@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/mainfragment"
+    tools:ignore="UnusedNavigation">
+
+    <!-- We define the different fragment who are in the application -->
+    <fragment
+        android:id="@+id/mainfragment"
+        android:name="com.feetconnect.Fragments.MainFragment"
+        android:label="Main"
+        />
+
+    <fragment
+        android:id="@+id/loginfragment"
+        android:name="com.feetconnect.Fragments.LoginFragment"
+        android:label="Login"
+        />
+
+</navigation>
