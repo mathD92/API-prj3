@@ -26,7 +26,6 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         val welcome: TextView = view.findViewById(R.id.welcome)
 
-
         welcome.setText(message)
 
         return view

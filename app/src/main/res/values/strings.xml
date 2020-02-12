@@ -4,4 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome in the FeetConnect</string>
+    <string name="text_login">Please Sign in</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_clear">Clear</string>
 </resources>
