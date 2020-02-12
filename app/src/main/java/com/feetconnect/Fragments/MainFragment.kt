@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import com.feetconnect.R
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -23,6 +24,8 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val welcome: TextView = view.findViewById(R.id.welcome)
+
 
         welcome.setText(message)
 
