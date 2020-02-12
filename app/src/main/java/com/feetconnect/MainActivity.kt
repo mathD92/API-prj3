@@ -11,14 +11,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    // Here create the activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Define the variable for recover the navigation mobile
         val nav_view: BottomNavigationView = findViewById(R.id.nav_view)
 
+        // Here we recover the view fragment on the view activity
         val navController = findNavController(R.id.fragment)
 
+        // Define the concordance for the bottom navigation
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.mainfragment,
@@ -26,7 +30,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        // Configure here the action bottom navigation with the variables
         setupActionBarWithNavController(navController, appBarConfiguration)
+        // Here, setup on the nav_view
         nav_view.setupWithNavController(navController)
     }
 }
