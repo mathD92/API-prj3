@@ -9,11 +9,11 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="-200dp"
-        android:textAlignment="center"
-        />
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textAlignment="center" />
 
     <ImageView
         android:id="@+id/image1"
