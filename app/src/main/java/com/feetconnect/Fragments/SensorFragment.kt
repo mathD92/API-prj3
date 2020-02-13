@@ -47,8 +47,8 @@ class SensorFragment : Fragment(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        sensorManager!!.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        sensorManager!!.registerListener(this, sensor1, SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager!!.registerListener(this, sensor, 500000, 500000)
+        sensorManager!!.registerListener(this, sensor1, 500000, 500000)
     }
 
     override fun onPause() {
@@ -58,14 +58,14 @@ class SensorFragment : Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION ){
-            sensor_acceleration_x.setText("X : " + event!!.values[0].toString())
-            sensor_acceleration_y.setText("Y : " + event.values[1].toString())
-            sensor_acceleration_z.setText("Z : " + event.values[2].toString())
+            sensor_acceleration_x.setText("X : " + event!!.values[0].toDouble().toString())
+            sensor_acceleration_y.setText("Y : " + event.values[1].toDouble().toString())
+            sensor_acceleration_z.setText("Z : " + event.values[2].toDouble().toString())
         }
         if (event!!.sensor.type === Sensor.TYPE_ORIENTATION){
-            sensor_orientation_x.setText("X : " + event!!.values[0].toString())
-            sensor_orientation_y.setText("Y : " + event.values[1].toString())
-            sensor_orientation_z.setText("Z : " + event.values[2].toString())
+            sensor_orientation_x.setText("X : " + event!!.values[0].toDouble().toString())
+            sensor_orientation_y.setText("Y : " + event.values[1].toDouble().toString())
+            sensor_orientation_z.setText("Z : " + event.values[2].toDouble().toString())
         }
     }
 
