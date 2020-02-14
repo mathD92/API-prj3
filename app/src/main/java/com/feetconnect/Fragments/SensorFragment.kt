@@ -7,6 +7,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -60,15 +61,21 @@ class SensorFragment : Fragment(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION ){
-            x = event!!.values[0]
-            y = event.values[1]
-            z = event.values[2]
-            sensor_acceleration_x.setText("X : " + x!!.toDouble().toString())
-            sensor_acceleration_y.setText("Y : " + y!!.toDouble().toString())
-            sensor_acceleration_z.setText("Z : " + z!!.toDouble().toString())
+        val mstatuschecker = Runnable {
+            run() {
+                if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION) {
+                    x = event!!.values[0]
+                    y = event.values[1]
+                    z = event.values[2]
+                    sensor_acceleration_x.setText("X : " + x!!.toDouble().toString())
+                    sensor_acceleration_y.setText("Y : " + y!!.toDouble().toString())
+                    sensor_acceleration_z.setText("Z : " + z!!.toDouble().toString())
+                }
+            }
         }
-        if (event!!.sensor.type === Sensor.TYPE_ORIENTATION){
+        Handler().postDelayed(mstatuschecker, 1000)
+        Handler().removeCallbacks(mstatuschecker)
+        if (event!!.sensor.type === Sensor.TYPE_ORIENTATION) {
             sensor_orientation_x.setText("X : " + event!!.values[0].toDouble().toString())
             sensor_orientation_y.setText("Y : " + event.values[1].toDouble().toString())
             sensor_orientation_z.setText("Z : " + event.values[2].toDouble().toString())
