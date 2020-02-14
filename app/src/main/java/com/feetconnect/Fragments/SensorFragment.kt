@@ -24,6 +24,9 @@ class SensorFragment : Fragment(), SensorEventListener {
     var sensor: Sensor? = null
     var sensor1: Sensor? = null
     var sensorManager: SensorManager? = null
+    var x: Float? = null
+    var y: Float? = null
+    var z: Float? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,9 +61,12 @@ class SensorFragment : Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION ){
-            sensor_acceleration_x.setText("X : " + event!!.values[0].toDouble().toString())
-            sensor_acceleration_y.setText("Y : " + event.values[1].toDouble().toString())
-            sensor_acceleration_z.setText("Z : " + event.values[2].toDouble().toString())
+            x = event!!.values[0]
+            y = event.values[1]
+            z = event.values[2]
+            sensor_acceleration_x.setText("X : " + x!!.toDouble().toString())
+            sensor_acceleration_y.setText("Y : " + y!!.toDouble().toString())
+            sensor_acceleration_z.setText("Z : " + z!!.toDouble().toString())
         }
         if (event!!.sensor.type === Sensor.TYPE_ORIENTATION){
             sensor_orientation_x.setText("X : " + event!!.values[0].toDouble().toString())
@@ -72,6 +78,5 @@ class SensorFragment : Fragment(), SensorEventListener {
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
     }
-
 
 }
