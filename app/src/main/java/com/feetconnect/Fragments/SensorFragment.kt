@@ -1,6 +1,8 @@
 package com.feetconnect.Fragments
 
 
+import android.annotation.SuppressLint
+import android.content.ContentResolver
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -8,6 +10,8 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
+import android.telephony.TelephonyManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +20,7 @@ import android.widget.TextView
 
 import com.feetconnect.R
 import kotlinx.android.synthetic.main.fragment_sensor.*
+import java.security.Security
 
 /**
  * A simple [Fragment] subclass.
@@ -29,6 +34,7 @@ class SensorFragment : Fragment(), SensorEventListener {
     var y: Float? = null
     var z: Float? = null
 
+    @SuppressLint("HardwareIds")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,6 +49,10 @@ class SensorFragment : Fragment(), SensorEventListener {
         val title_sensor_acceleration: TextView = view.findViewById(R.id.title_sensor_acceleration)
         val title_sensor_orientation: TextView = view.findViewById(R.id.title_sensor_orientation)
 
+        val id: String = Settings.Secure.getString(context!!.contentResolver, Settings.Secure.ANDROID_ID)
+
+        println(id)
+
         title_sensor_acceleration.setText("Sensor Acceleration Linear")
         title_sensor_orientation.setText("Sensor Orientation")
 
@@ -51,8 +61,8 @@ class SensorFragment : Fragment(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        sensorManager!!.registerListener(this, sensor, 500000, 500000)
-        sensorManager!!.registerListener(this, sensor1, 500000, 500000)
+        sensorManager!!.registerListener(this, sensor,  500000)
+        sensorManager!!.registerListener(this, sensor1, 500000)
     }
 
     override fun onPause() {
