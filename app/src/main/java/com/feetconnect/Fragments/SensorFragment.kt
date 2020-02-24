@@ -2,7 +2,6 @@ package com.feetconnect.Fragments
 
 
 import android.annotation.SuppressLint
-import android.content.ContentResolver
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -11,7 +10,6 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.telephony.TelephonyManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +18,6 @@ import android.widget.TextView
 
 import com.feetconnect.R
 import kotlinx.android.synthetic.main.fragment_sensor.*
-import java.security.Security
 
 /**
  * A simple [Fragment] subclass.
@@ -46,8 +43,8 @@ class SensorFragment : Fragment(), SensorEventListener {
         sensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         sensor1 = sensorManager!!.getDefaultSensor(Sensor.TYPE_ORIENTATION)
 
-        val title_sensor_acceleration: TextView = view.findViewById(R.id.title_sensor_acceleration)
-        val title_sensor_orientation: TextView = view.findViewById(R.id.title_sensor_orientation)
+        val title_sensor_acceleration: TextView = view.findViewById(R.id.title_sensor_acceleration) as TextView
+        val title_sensor_orientation: TextView = view.findViewById(R.id.title_sensor_orientation) as TextView
 
         val id: String = Settings.Secure.getString(context!!.contentResolver, Settings.Secure.ANDROID_ID)
 
