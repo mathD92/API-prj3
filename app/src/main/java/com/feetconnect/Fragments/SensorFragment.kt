@@ -43,10 +43,13 @@ class SensorFragment : Fragment(), SensorEventListener {
         sensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         sensor1 = sensorManager!!.getDefaultSensor(Sensor.TYPE_ORIENTATION)
 
-        val title_sensor_acceleration: TextView = view.findViewById(R.id.title_sensor_acceleration) as TextView
-        val title_sensor_orientation: TextView = view.findViewById(R.id.title_sensor_orientation) as TextView
+        val title_sensor_acceleration: TextView =
+            view.findViewById(R.id.title_sensor_acceleration) as TextView
+        val title_sensor_orientation: TextView =
+            view.findViewById(R.id.title_sensor_orientation) as TextView
 
-        val id: String = Settings.Secure.getString(context!!.contentResolver, Settings.Secure.ANDROID_ID)
+        val id: String =
+            Settings.Secure.getString(context!!.contentResolver, Settings.Secure.ANDROID_ID)
 
         println(id)
 
@@ -58,8 +61,8 @@ class SensorFragment : Fragment(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        sensorManager!!.registerListener(this, sensor,  500000)
-        sensorManager!!.registerListener(this, sensor1, 500000)
+        sensorManager!!.registerListener(this, sensor, 100, 100)
+        sensorManager!!.registerListener(this, sensor1, 100, 100)
     }
 
     override fun onPause() {
@@ -68,20 +71,14 @@ class SensorFragment : Fragment(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        val mstatuschecker = Runnable {
-            run() {
-                if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION) {
-                    x = event!!.values[0]
-                    y = event.values[1]
-                    z = event.values[2]
-                    sensor_acceleration_x.setText("X : " + x!!.toDouble().toString())
-                    sensor_acceleration_y.setText("Y : " + y!!.toDouble().toString())
-                    sensor_acceleration_z.setText("Z : " + z!!.toDouble().toString())
-                }
-            }
+        if (event!!.sensor.type === Sensor.TYPE_LINEAR_ACCELERATION) {
+            x = event!!.values[0]
+            y = event.values[1]
+            z = event.values[2]
+            sensor_acceleration_x.setText("X : " + x!!.toDouble().toString())
+            sensor_acceleration_y.setText("Y : " + y!!.toDouble().toString())
+            sensor_acceleration_z.setText("Z : " + z!!.toDouble().toString())
         }
-        Handler().postDelayed(mstatuschecker, 1000)
-        Handler().removeCallbacks(mstatuschecker)
         if (event!!.sensor.type === Sensor.TYPE_ORIENTATION) {
             sensor_orientation_x.setText("X : " + event!!.values[0].toDouble().toString())
             sensor_orientation_y.setText("Y : " + event.values[1].toDouble().toString())
